@@ -39,9 +39,20 @@ speak.call(shortPerson, "I can fit into the crawl space!")
 //
 //
 
+let protoPerson = {
+    speak(line) {
+        return `The ${this.attribute} person says "${line}"`;
+    }
+};
+
+let fatPerson = Object.create(protoPerson);
+fatPerson.attribute = "fat";
+fatPerson.speak("Where is the cake?")
+
 //Constructor functions
 function makePerson(attribute) {
     let person = Object.create(protoPerson);
     person.attribute = attribute;
     return person;
 }
+
